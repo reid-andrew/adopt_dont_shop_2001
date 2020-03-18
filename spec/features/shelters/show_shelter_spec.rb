@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "shelter page", type: :feature do
+RSpec.describe "shelter show page", type: :feature do
   it "can see the details of a specific shelter" do
     shelter_1 = Shelter.create( id: 1,
                                 name: "Henry Porter's Puppies",
