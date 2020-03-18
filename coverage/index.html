@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-18T14:46:59-06:00">2020-03-18T14:46:59-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-18T14:53:16-06:00">2020-03-18T14:53:16-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -243,7 +243,7 @@
       <tr>
         <td class="strong"><a href="#a802b78e87a9393cee1939ad0769942a5c15ed4a" class="src_link" title="spec/features/shelters/show_shelter_spec.rb">spec/features/shelters/show_shelter_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>21</td>
+        <td>20</td>
         <td>10</td>
         <td>10</td>
         <td>0</td>
@@ -1946,7 +1946,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;shelter page&quot;, type: :feature do</code>
+          <code class="ruby">RSpec.describe &quot;show shelter page&quot;, type: :feature do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -1958,100 +1958,94 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    shelter_1 = Shelter.create( id: 1,</code>
+          <code class="ruby">    shelter_1 = Shelter.create( name: &quot;Henry Porter&#39;s Puppies&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
           
           
-          <code class="ruby">                                name: &quot;Henry Porter&#39;s Puppies&quot;,</code>
+          <code class="ruby">                                address: &quot;1315 Monaco Parkway&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">                                address: &quot;1315 Monaco Parkway&quot;,</code>
+          <code class="ruby">                                city: &quot;Denver&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">                                city: &quot;Denver&quot;,</code>
+          <code class="ruby">                                state: &quot;CO&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby">                                state: &quot;CO&quot;,</code>
+          <code class="ruby">                                zip: &quot;80220&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
           
           
-          <code class="ruby">                                zip: &quot;80220&quot;</code>
+          <code class="ruby">                              )</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">                              )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">    visit &quot;/shelters/1&quot;</code>
+          <code class="ruby">    visit &quot;/shelters/#{shelter_1.id}&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(shelter_1.name)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(shelter_1.address)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(shelter_1.city)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(shelter_1.state)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">    expect(page).to have_content(shelter_1.zip)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">end</code>
