@@ -8,8 +8,7 @@ class SheltersController < ApplicationController
     @shelter = Shelter.find(params[:id])
   end
 
-  def new
-  end
+  def new; end
 
   def create
     shelter = Shelter.new({
@@ -22,4 +21,6 @@ class SheltersController < ApplicationController
     shelter.save
     redirect_to "/shelters/#{shelter.id}"
   end
+
+  def edit; end
 end
