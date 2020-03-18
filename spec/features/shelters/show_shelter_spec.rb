@@ -29,6 +29,14 @@ RSpec.describe "show shelter page", type: :feature do
     visit "/shelters/#{shelter_1.id}"
     click_link "Update Shelter"
 
-    expect(page).to have_current_path("/shelters/#{shelter_1.id}/edit")               
+    expect(page).to have_current_path("/shelters/#{shelter_1.id}/edit")
+
+    fill_in('address', :with => "1765 Larimer St")
+    fill_in('zip', :with => "80202")
+    click_button "Update Shelter"
+
+    expect(page).to have_current_path("/shelters/#{shelter_1.id}")
+    expect(page).to have_content("1765 Larimer St")
+    expect(page).to have_content("80202")
   end
 end

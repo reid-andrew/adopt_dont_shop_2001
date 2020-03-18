@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/shelters/:id', to: 'shelters#show'
   get '/shelters/:id/edit', to: 'shelters#edit'
   post '/shelters/new_shelter', to: 'shelters#create'
+  patch '/shelters/:id/edit', to: 'shelters#update'
 end
