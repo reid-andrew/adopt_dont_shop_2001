@@ -6,3 +6,6 @@
   <p><%= pet.sex %></p>
   <p><%= image_tag(image_path(pet.image_path)) %></p>
 <% end %>
+<br>
+<br>
+<%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>

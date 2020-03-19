@@ -60,4 +60,25 @@ RSpec.describe "when a visitor visits the show shelter pets page", type: :featur
     expect(page).to_not have_content(pet_4.name)
     expect(page).to_not have_content(pet_5.name)
   end
+
+  it "it can create a new pet" do
+    shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
+                                address: "1315 Monaco Parkway",
+                                city: "Denver",
+                                state: "CO",
+                                zip: "80220"
+                              )
+
+    Pet.create( name: "Henry",
+                        age: 4,
+                        sex: "Male",
+                        shelter_id: shelter_1.id,
+                        image_path: 'hp.jpg',
+                        adoptable_status: 'Adoptable')
+
+    visit "/shelters/#{shelter_1.id}/pets"
+    click_link "Create Pet"
+
+    expect(page).to have_current_path("/shelters/#{shelter_1.id}/pets/new")
+  end
 end
