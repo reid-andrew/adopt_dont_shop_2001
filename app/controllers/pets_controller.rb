@@ -24,9 +24,28 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
   end
 
+  def edit
+    @pet = Pet.find(params[:id])
+  end
+
+  def update
+    pet = Pet.find(params[:id])
+    pet[:name] = update_params[:name]
+    pet[:age] = update_params[:age]
+    pet[:sex] = update_params[:sex]
+    pet[:description] = update_params[:description]
+    pet[:image_path] = update_params[:image_path]
+    pet.save
+    redirect_to "/pets/#{pet.id}"
+  end
+
   private
 
   def create_params
     params.permit(:name, :age, :sex, :description, :image_path, :id)
+  end
+
+  def update_params
+    params.permit(:name, :age, :sex, :description, :image_path)
   end
 end
