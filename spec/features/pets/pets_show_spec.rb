@@ -13,18 +13,20 @@ RSpec.describe "show pet page", type: :feature do
                         sex: "Male",
                         shelter_id: shelter_1.id,
                         image_path: 'hp.jpg',
-                        adoptable_status: 'Adoptable')
+                        adoptable_status: 'Adoptable',
+                        description: "He's the cutest!")
     pet_2 = Pet.create( name: "Liza Bear",
                         age: 16,
                         sex: "Female",
                         shelter_id: shelter_1.id,
                         image_path: 'hp2.jpg',
-                        adoptable_status: 'Pending Adoption')
+                        adoptable_status: 'Pending Adoption',
+                        description: "Newfie drool!")
 
     visit "/pets/#{pet_1[:id]}"
 
     expect(page).to have_content(pet_1.name)
-    # expect(page).to have_content(pet_1.description)
+    expect(page).to have_content(pet_1.description)
     expect(page).to have_content(pet_1.age)
     expect(page).to have_content(pet_1.sex)
     expect(page).to have_content(pet_1.adoptable_status)
@@ -33,7 +35,7 @@ RSpec.describe "show pet page", type: :feature do
     visit "/pets/#{pet_2[:id]}"
 
     expect(page).to have_content(pet_2.name)
-    # expect(page).to have_content(pet_2.description)
+    expect(page).to have_content(pet_2.description)
     expect(page).to have_content(pet_2.age)
     expect(page).to have_content(pet_2.sex)
     expect(page).to have_content(pet_2.adoptable_status)
