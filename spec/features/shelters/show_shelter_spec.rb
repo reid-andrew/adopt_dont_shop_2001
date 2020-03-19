@@ -48,6 +48,9 @@ RSpec.describe "show shelter page", type: :feature do
                                 zip: "80220"
                               )
 
+    visit "/shelters"
+    expect(page).to have_content(shelter_1.name)
+        
     visit "/shelters/#{shelter_1.id}"
     click_link "Delete Shelter"
 
