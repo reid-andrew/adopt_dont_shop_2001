@@ -1,6 +1,6 @@
 <h1><%= @shelter.name %></h1>
 <br>
-<% @shelter.pets.each do |pet| %>
+<% @shelter.adoptable_pets.each do |pet| %>
   <h3><%= pet.name %></h3>
   <p><%= pet.age %></p>
   <p><%= pet.sex %></p>

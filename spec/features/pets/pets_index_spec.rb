@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "shelters index page", type: :feature do
+RSpec.describe "pets index page", type: :feature do
   it "can see the name and info of each pet in the system" do
     shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
                                 address: "1315 Monaco Parkway",
@@ -12,12 +12,14 @@ RSpec.describe "shelters index page", type: :feature do
                         age: 4,
                         sex: "Male",
                         shelter_id: shelter_1.id,
-                        image_path: 'hp.jpg')
+                        image_path: 'hp.jpg',
+                        adoptable_status: 'Adoptable')
     pet_2 = Pet.create( name: "Liza Bear",
                         age: 16,
                         sex: "Female",
                         shelter_id: shelter_1.id,
-                        image_path: 'hp2.jpg')
+                        image_path: 'hp2.jpg',
+                        adoptable_status: 'Adoptable')
 
     visit "/pets"
 
