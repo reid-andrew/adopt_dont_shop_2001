@@ -11,11 +11,13 @@ RSpec.describe "shelters index page", type: :feature do
     pet_1 = Pet.create( name: "Henry",
                         age: 4,
                         sex: "Male",
-                        shelter_id: shelter_1.id)
+                        shelter_id: shelter_1.id,
+                        image_path: 'hp.jpg')
     pet_2 = Pet.create( name: "Liza Bear",
                         age: 16,
                         sex: "Female",
-                        shelter_id: shelter_1.id)
+                        shelter_id: shelter_1.id,
+                        image_path: 'hp2.jpg')
 
     visit "/pets"
 
@@ -25,9 +27,10 @@ RSpec.describe "shelters index page", type: :feature do
     expect(page).to have_content(pet_2.age)
     expect(page).to have_content(pet_1.sex)
     expect(page).to have_content(pet_2.sex)
-    expect(page).to have_content(shelter_1.name)
-    # expect(page).to have_content(pet_1.image)
-    # expect(page).to have_content(pet_2.image)
+    expect(page).to have_css("img[src='/assets/hp-606612a36d3cc16d901e74616fbd73a568030910d171797aa44123d55a9bfa70.jpg']")
+    expect(page).to have_css("img[src='/assets/hp2-d54ec5938e641f10459be7bdba8fbb7fed849ec44ba2d1ed8568773d69bd164d.jpg']")
+
+    save_and_open_page
   end
 
 end

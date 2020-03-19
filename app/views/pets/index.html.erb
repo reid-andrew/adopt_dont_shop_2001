@@ -4,4 +4,5 @@
   <p><%= pet.age.to_s %></p>
   <p><%= pet.sex %></p>
   <p><%= pet.shelter_name %></p>
+  <%= image_tag(image_path(pet.image_path)) %>
 <% end %>
