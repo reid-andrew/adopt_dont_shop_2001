@@ -35,6 +35,8 @@ class PetsController < ApplicationController
     pet[:sex] = update_params[:sex]
     pet[:description] = update_params[:description]
     pet[:image_path] = update_params[:image_path]
+    pet[:adoptable_status] = update_params[:adoptable_status]
+
     pet.save
     redirect_to "/pets/#{pet.id}"
   end
@@ -46,6 +48,6 @@ class PetsController < ApplicationController
   end
 
   def update_params
-    params.permit(:name, :age, :sex, :description, :image_path)
+    params.permit(:name, :age, :sex, :description, :image_path, :adoptable_status)
   end
 end
