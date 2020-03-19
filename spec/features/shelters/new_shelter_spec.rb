@@ -7,7 +7,7 @@ RSpec.describe "new shelter page", type: :feature do
     fill_in('Address', :with => '55400 Twp Rd 456')
     fill_in('City', :with => 'Coshocton')
     fill_in('State', :with => 'OH')
-    fill_in('ZIP Code', :with => '43812')
+    fill_in('Zip', :with => '43812')
     click_button('Create Shelter')
 
     expect(page).to have_content("Holly's Homeless Animals")
