@@ -9,9 +9,12 @@ describe Pet, type: :model do
     it {should validate_presence_of :name}
     it {should validate_presence_of :age}
     it {should validate_presence_of :sex}
+    it {should validate_inclusion_of(:sex). in_array ['Male', 'male', 'MALE', 'Female', 'female', 'FEMALE']}
     it {should validate_presence_of :description}
     it {should validate_presence_of :image_path}
     it {should validate_presence_of :adoptable_status}
+    it {should validate_inclusion_of(:adoptable_status). in_array ['Adoptable', 'Pending Adoption', 'Adopted']}
+
   end
 
   describe "model methods" do
