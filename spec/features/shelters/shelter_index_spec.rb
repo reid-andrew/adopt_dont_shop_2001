@@ -1,24 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe "SHELTERS index page - A user", type: :feature do
-  it "can see the name of each shelter in the system" do
-    shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
+
+  before(:each) do
+    @shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
                                 address: "1315 Monaco Parkway",
                                 city: "Denver",
                                 state: "CO",
                                 zip: "80220"
                               )
-    shelter_2 = Shelter.create( name: "Holly's Homeless Animals",
+    @shelter_2 = Shelter.create( name: "Holly's Homeless Animals",
                                 address: "55400 Township Rd 456",
                                 city: "Coshocton",
                                 state: "OH",
                                 zip: "43812"
                               )
+  end
 
+  it "can see the name of each shelter in the system" do
     visit "/shelters"
 
-    expect(page).to have_content(shelter_1.name)
-    expect(page).to have_content(shelter_2.name)
+    expect(page).to have_content(@shelter_1.name)
+    expect(page).to have_content(@shelter_2.name)
   end
 
   it "can click clink to create a new shelter", type: :feature do
@@ -29,31 +32,37 @@ RSpec.describe "SHELTERS index page - A user", type: :feature do
   end
 
   it "can click to edit an existing shelter", type: :feature do
-    shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
-                                address: "1315 Monaco Parkway",
-                                city: "Denver",
-                                state: "CO",
-                                zip: "80220"
-                              )
-    shelter_2 = Shelter.create( name: "Holly's Homeless Animals",
-                                address: "55400 Township Rd 456",
-                                city: "Coshocton",
-                                state: "OH",
-                                zip: "43812"
-                              )
-
     visit "/shelters"
-    within("##{shelter_1.id}") do
+    within("##{@shelter_1.id}") do
       click_link "Edit Shelter"
     end
 
-    expect(page).to have_current_path("/shelters/#{shelter_1.id}/edit")
+    expect(page).to have_current_path("/shelters/#{@shelter_1.id}/edit")
 
     visit "/shelters"
-    within("##{shelter_2.id}") do
+    within("##{@shelter_2.id}") do
       click_link "Edit Shelter"
     end
 
-    expect(page).to have_current_path("/shelters/#{shelter_2.id}/edit")
+    expect(page).to have_current_path("/shelters/#{@shelter_2.id}/edit")
+  end
+
+  it "can click to delete an existing shelter", type: :feature do
+    visit "/shelters"
+    within("##{@shelter_1.id}") do
+      click_link "Delete Shelter"
+    end
+
+    expect(page).to have_current_path("/shelters")
+    expect(page).not_to have_content(@shelter_1.name)
+
+
+    visit "/shelters"
+    within("##{@shelter_2.id}") do
+      click_link "Delete Shelter"
+    end
+
+    expect(page).to have_current_path("/shelters")
+    expect(page).not_to have_content(@shelter_2.name)
   end
 end
