@@ -28,25 +28,32 @@ RSpec.describe "SHELTERS index page - A user", type: :feature do
     expect(page).to have_current_path("/shelters/new")
   end
 
-  # it "can click to edit an existing shelter", type: :feature do
-  #   shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
-  #                               address: "1315 Monaco Parkway",
-  #                               city: "Denver",
-  #                               state: "CO",
-  #                               zip: "80220"
-  #                             )
-  #   shelter_2 = Shelter.create( name: "Holly's Homeless Animals",
-  #                               address: "55400 Township Rd 456",
-  #                               city: "Coshocton",
-  #                               state: "OH",
-  #                               zip: "43812"
-  #                             )
-  #
-  #   visit "/shelters"
-  #
-  #
-  #   #Code here for clicking link.
-  #
-  #   expect(page).to have_current_path("/shelters/#{shelter_1.id}/edit")
-  # end
+  it "can click to edit an existing shelter", type: :feature do
+    shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
+                                address: "1315 Monaco Parkway",
+                                city: "Denver",
+                                state: "CO",
+                                zip: "80220"
+                              )
+    shelter_2 = Shelter.create( name: "Holly's Homeless Animals",
+                                address: "55400 Township Rd 456",
+                                city: "Coshocton",
+                                state: "OH",
+                                zip: "43812"
+                              )
+
+    visit "/shelters"
+    within("##{shelter_1.id}") do
+      click_link "Edit Shelter"
+    end
+
+    expect(page).to have_current_path("/shelters/#{shelter_1.id}/edit")
+
+    visit "/shelters"
+    within("##{shelter_2.id}") do
+      click_link "Edit Shelter"
+    end
+
+    expect(page).to have_current_path("/shelters/#{shelter_2.id}/edit")
+  end
 end
