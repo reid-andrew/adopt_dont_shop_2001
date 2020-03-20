@@ -20,30 +20,35 @@ RSpec.describe "when a visitor visits the show shelter pets page", type: :featur
                         sex: "Male",
                         shelter_id: shelter_1.id,
                         image_path: 'hp.jpg',
+                        description: 'Cute',
                         adoptable_status: 'Adoptable')
     pet_2 = Pet.create( name: "Liza Bear",
                         age: 16,
                         sex: "Female",
                         shelter_id: shelter_1.id,
                         image_path: 'hp2.jpg',
+                        description: 'Cute',
                         adoptable_status: 'Adoptable')
     pet_3 = Pet.create( name: "Feather",
                         age: 5,
                         sex: "Female",
                         shelter_id: shelter_2.id,
                         image_path: 'hp2.jpg',
+                        description: 'Cute',
                         adoptable_status: 'Adoptable')
     pet_4 = Pet.create( name: "Pepper Dog",
                         age: 15,
                         sex: "Male",
                         shelter_id: shelter_1.id,
                         image_path: 'hp2.jpg',
+                        description: 'Cute',
                         adoptable_status: 'Pending Adoption')
     pet_5 = Pet.create( name: "Holly",
                         age: 6,
                         sex: "Male",
                         shelter_id: shelter_1.id,
                         image_path: 'hp2.jpg',
+                        description: 'Cute',
                         adoptable_status: 'Adopted')
 
     visit "/shelters/#{shelter_1.id}/pets"
@@ -74,6 +79,7 @@ RSpec.describe "when a visitor visits the show shelter pets page", type: :featur
                         sex: "Male",
                         shelter_id: shelter_1.id,
                         image_path: 'hp.jpg',
+                        description: 'Cute',
                         adoptable_status: 'Adoptable')
 
     visit "/shelters/#{shelter_1.id}/pets"

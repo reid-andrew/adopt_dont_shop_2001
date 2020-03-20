@@ -13,12 +13,14 @@ RSpec.describe "pets index page", type: :feature do
                         sex: "Male",
                         shelter_id: shelter_1.id,
                         image_path: 'hp.jpg',
+                        description: 'Cute',
                         adoptable_status: 'Adoptable')
     pet_2 = Pet.create( name: "Liza Bear",
                         age: 16,
                         sex: "Female",
                         shelter_id: shelter_1.id,
                         image_path: 'hp2.jpg',
+                        description: 'Cute',
                         adoptable_status: 'Adoptable')
 
     visit "/pets"

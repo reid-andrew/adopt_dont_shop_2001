@@ -26,18 +26,21 @@ describe Shelter, type: :model do
                           sex: "Male",
                           shelter_id: shelter_1.id,
                           image_path: 'hp.jpg',
+                          description: 'Cute',
                           adoptable_status: 'Adoptable')
       pet_2 = Pet.create( name: "Liza",
                           age: 16,
                           sex: "Female",
                           shelter_id: shelter_1.id,
                           image_path: 'hp2.jpg',
+                          description: 'Cute',
                           adoptable_status: 'Pending Adoption')
       pet_3 = Pet.create( name: "Feather",
                           age: 5,
                           sex: "Female",
                           shelter_id: shelter_1.id,
                           image_path: 'hp2.jpg',
+                          description: 'Cute',
                           adoptable_status: 'Adoptable')
 
       expect(shelter_1.adoptable_pets).to include(pet_1)
