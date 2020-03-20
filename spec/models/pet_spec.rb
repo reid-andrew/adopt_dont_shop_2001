@@ -15,7 +15,7 @@ describe Pet, type: :model do
   end
 
   describe "model methods" do
-    it "knows the name of the shelter it lives in" do
+    it "- A pet knows its shelter" do
       shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
                                   address: "1315 Monaco Parkway",
                                   city: "Denver",

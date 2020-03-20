@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "show shelter page", type: :feature do
+RSpec.describe "SHELTERS show page - A user", type: :feature do
   it "can see the details of a specific shelter" do
     shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
                                 address: "1315 Monaco Parkway",
@@ -50,7 +50,7 @@ RSpec.describe "show shelter page", type: :feature do
 
     visit "/shelters"
     expect(page).to have_content(shelter_1.name)
-        
+
     visit "/shelters/#{shelter_1.id}"
     click_link "Delete Shelter"
 

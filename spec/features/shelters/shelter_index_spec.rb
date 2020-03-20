@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "shelters index page", type: :feature do
+RSpec.describe "SHELTERS index page - A user", type: :feature do
   it "can see the name of each shelter in the system" do
     shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
                                 address: "1315 Monaco Parkway",

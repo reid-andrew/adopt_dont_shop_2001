@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "when a visitor visits the show shelter pets page", type: :feature do
-  it "it can see the available pets" do
+RSpec.describe "SHOWPETS index page - A user", type: :feature do
+  it "can see the available pets" do
     shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
                                 address: "1315 Monaco Parkway",
                                 city: "Denver",
@@ -66,7 +66,7 @@ RSpec.describe "when a visitor visits the show shelter pets page", type: :featur
     expect(page).to_not have_content(pet_5.name)
   end
 
-  it "it can create a new pet" do
+  it "can create a new pet" do
     shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
                                 address: "1315 Monaco Parkway",
                                 city: "Denver",

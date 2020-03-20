@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "new pets page", type: :feature do
+RSpec.describe "PETS new page - A user", type: :feature do
   it "can create a new pet" do
     shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
                                 address: "1315 Monaco Parkway",
@@ -21,7 +21,5 @@ RSpec.describe "new pets page", type: :feature do
     expect(page).to have_current_path("/shelters/#{shelter_1.id}/pets")
     expect(page).to have_content("Karl Barx")
     expect(page).to have_css("img[src='/assets/hp-606612a36d3cc16d901e74616fbd73a568030910d171797aa44123d55a9bfa70.jpg']")
-
-
   end
 end

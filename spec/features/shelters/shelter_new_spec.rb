@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "new shelter page", type: :feature do
+RSpec.describe "SHELTERS new page - A user", type: :feature do
   it "can create new shelter" do
     visit "/shelters/new"
     fill_in('Name', :with => "Holly's Homeless Animals")
