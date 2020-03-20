@@ -72,4 +72,37 @@ RSpec.describe "show pet page", type: :feature do
     expect(page).to have_content("You won't find any cuter!")
     expect(page).to have_css("img[src='/assets/hp2-d54ec5938e641f10459be7bdba8fbb7fed849ec44ba2d1ed8568773d69bd164d.jpg']")
   end
+
+  it "can delete a pet" do
+    shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
+                                address: "1315 Monaco Parkway",
+                                city: "Denver",
+                                state: "CO",
+                                zip: "80220"
+                              )
+    pet_1 = Pet.create( name: "Holly",
+                        age: 4,
+                        sex: "Male",
+                        shelter_id: shelter_1.id,
+                        image_path: 'hp.jpg',
+                        adoptable_status: 'Adoptable',
+                        description: "He's the cutest!")
+    pet_2 = Pet.create( name: "Liza Bear",
+                        age: 16,
+                        sex: "Female",
+                        shelter_id: shelter_1.id,
+                        image_path: 'hp2.jpg',
+                        adoptable_status: 'Pending Adoption',
+                        description: "Newfie drool!")
+
+    visit "/shelters/#{shelter_1.id}/pets"
+    expect(page).to have_content(pet_1.name)
+
+    visit "/pets/#{pet_1[:id]}"
+    click_link "Delete Pet"
+
+    expect(page).to have_current_path("/pets")
+    expect(page).to_not have_content(pet_1.name)
+
+  end
 end
