@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "PETS show page - A user", type: :feature do
+RSpec.describe "Site navigation - A user", type: :feature do
   before(:each) do
     @shelter_1 = Shelter.create( name: "Henry Porter's Puppies",
                                 address: "1315 Monaco Parkway",
@@ -16,28 +16,35 @@ RSpec.describe "PETS show page - A user", type: :feature do
                         adoptable_status: 'Adoptable',
                         description: "He's the cutest!")
   end
-  it "can nav to pets index" do
+  it "can nav to pets index from pets index" do
     visit "/pets"
     within("nav") do
       click_link "All Pets"
     end
 
-    expect(page).to have_current_path("/pets")
 
+    expect(page).to have_current_path("/pets")
+  end
+
+  it "can nav to pets index from shelter pets" do
     visit "/shelters/1/pets/new"
     within("nav") do
       click_link "All Pets"
     end
 
     expect(page).to have_current_path("/pets")
+  end
 
+  it "can nav to pets index from pet show" do
     visit "/pets/#{@pet_1.id}"
     within("nav") do
       click_link "All Pets"
     end
 
     expect(page).to have_current_path("/pets")
+  end
 
+  it "can nav to pets index from pet edit" do
     visit "/pets/#{@pet_1.id}/edit"
     within("nav") do
       click_link "All Pets"
@@ -46,35 +53,43 @@ RSpec.describe "PETS show page - A user", type: :feature do
     expect(page).to have_current_path("/pets")
   end
 
-  it "can nav to shelters index" do
+  it "can nav to shelters index from shelters index" do
     visit "/shelters"
     within("nav") do
       click_link "All Shelters"
     end
 
     expect(page).to have_current_path("/shelters")
+  end
 
+  it "can nav to shelters index from shelter new" do
     visit "/shelters/new"
     within("nav") do
       click_link "All Shelters"
     end
 
     expect(page).to have_current_path("/shelters")
+  end
 
+  it "can nav to shelters index from shelter show" do
     visit "/shelters/#{@shelter_1.id}"
     within("nav") do
       click_link "All Shelters"
     end
 
     expect(page).to have_current_path("/shelters")
+  end
 
+  it "can nav to shelters index from shelter edit" do
     visit "/shelters/#{@shelter_1.id}/edit"
     within("nav") do
       click_link "All Shelters"
     end
 
     expect(page).to have_current_path("/shelters")
+  end
 
+  it "can nav to shelters index from shelter pets" do
     visit "/shelters/#{@shelter_1.id}/pets"
     within("nav") do
       click_link "All Shelters"
