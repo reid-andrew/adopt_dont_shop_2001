@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
 
-  def index; end
-  
+  def index
+    redirect_to "/shelters"
+  end
+
 end
