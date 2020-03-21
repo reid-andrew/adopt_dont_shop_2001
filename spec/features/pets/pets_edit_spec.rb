@@ -12,14 +12,14 @@ RSpec.describe "PETS show page - A user", type: :feature do
                         age: 4,
                         sex: "Male",
                         shelter_id: @shelter_1.id,
-                        image_path: 'hp.jpg',
+                        image: 'hp.jpg',
                         adoptable_status: 'Adoptable',
                         description: "He's the cutest!")
     @pet_2 = Pet.create( name: "Liza Bear",
                         age: 16,
                         sex: "Female",
                         shelter_id: @shelter_1.id,
-                        image_path: 'hp2.jpg',
+                        image: 'hp2.jpg',
                         adoptable_status: 'Pending Adoption',
                         description: "Newfie drool!")
   end
@@ -29,7 +29,7 @@ RSpec.describe "PETS show page - A user", type: :feature do
 
     fill_in(:sex, :with => "Female")
     fill_in(:description, :with => "You won't find any cuter!")
-    fill_in(:image_path, :with => "hp2.jpg")
+    fill_in(:image, :with => "hp2.jpg")
     click_button "Update Pet"
 
     expect(page).to have_current_path("/pets/#{@pet_1[:id]}")

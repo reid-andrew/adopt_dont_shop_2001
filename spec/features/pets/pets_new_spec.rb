@@ -15,7 +15,7 @@ RSpec.describe "PETS new page - A user", type: :feature do
     fill_in(:age, :with => 5)
     fill_in(:sex, :with => 'Male')
     fill_in(:description, :with => 'Doggos of the world, unite!')
-    fill_in(:image_path, :with => 'hp.jpg')
+    fill_in(:image, :with => 'hp.jpg')
     click_button('Create Pet')
 
     expect(page).to have_current_path("/shelters/#{shelter_1.id}/pets")

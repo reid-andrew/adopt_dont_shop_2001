@@ -12,7 +12,7 @@ RSpec.describe "PETS show page - A user", type: :feature do
                         age: 4,
                         sex: "Male",
                         shelter_id: @shelter_1.id,
-                        image_path: 'hp.jpg',
+                        image: 'hp.jpg',
                         adoptable_status: 'Adoptable',
                         description: "He's the cutest!")
   end

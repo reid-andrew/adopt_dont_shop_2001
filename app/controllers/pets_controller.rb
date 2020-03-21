@@ -12,7 +12,7 @@ class PetsController < ApplicationController
                     age: create_params[:age],
                     sex: create_params[:sex],
                     description: create_params[:description],
-                    image_path: create_params[:image_path],
+                    image: create_params[:image],
                     adoptable_status: "Adoptable",
                     shelter_id: create_params[:id]
                   })
@@ -34,7 +34,7 @@ class PetsController < ApplicationController
     pet[:age] = update_params[:age]
     pet[:sex] = update_params[:sex]
     pet[:description] = update_params[:description]
-    pet[:image_path] = update_params[:image_path]
+    pet[:image] = update_params[:image]
     pet[:adoptable_status] = update_params[:adoptable_status]
 
     pet.save
@@ -49,10 +49,10 @@ class PetsController < ApplicationController
   private
 
   def create_params
-    params.permit(:name, :age, :sex, :description, :image_path, :id)
+    params.permit(:name, :age, :sex, :description, :image, :id)
   end
 
   def update_params
-    params.permit(:name, :age, :sex, :description, :image_path, :adoptable_status)
+    params.permit(:name, :age, :sex, :description, :image, :adoptable_status)
   end
 end
