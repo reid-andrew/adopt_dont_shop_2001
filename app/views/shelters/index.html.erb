@@ -1,13 +1,19 @@
-<h1>All Shelters</h1>
-<% @shelters.each do |shelter| %>
-  <section id = <%="#{shelter.id}" %>>
-    <div>
-      <%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %>
-      <%= link_to "Edit Shelter", "/shelters/#{shelter.id}/edit" %>
-      <%= link_to "Delete Shelter", "/shelters/#{shelter.id}/delete" %>
-    </div>
-  </section>
-<% end %>
-<br>
-<br>
-<%= link_to "New Shelter", "/shelters/new" %>
+<nav>
+  <%= link_to "All Pets", "/pets" %>
+  <%= link_to "All Shelters", "/shelters" %>
+</nav>
+<content>
+  <h1>All Shelters</h1>
+  <% @shelters.each do |shelter| %>
+    <section id = <%="#{shelter.id}" %>>
+      <div>
+        <%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %>
+        <%= link_to "Edit Shelter", "/shelters/#{shelter.id}/edit" %>
+        <%= link_to "Delete Shelter", "/shelters/#{shelter.id}/delete" %>
+      </div>
+    </section>
+  <% end %>
+  <br>
+  <br>
+  <%= link_to "New Shelter", "/shelters/new" %>
+</content>

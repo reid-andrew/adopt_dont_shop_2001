@@ -1,15 +1,21 @@
-<h1><%= @shelter.name %></h1>
-<br>
-<% @shelter.adoptable_pets.each do |pet| %>
-  <section id = <%="#{pet.id}" %>>
-    <div>
-      <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
-      <p><%= pet.age %></p>
-      <p><%= pet.sex %></p>
-      <p><%= image_tag(image_path(pet.image_path)) %></p>
-    </div>
-  </section>
-<% end %>
-<br>
-<br>
-<%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>
+<nav>
+  <%= link_to "All Pets", "/pets" %>
+  <%= link_to "All Shelters", "/shelters" %>
+</nav>
+<content>
+  <h1><%= @shelter.name %></h1>
+  <br>
+  <% @shelter.adoptable_pets.each do |pet| %>
+    <section id = <%="#{pet.id}" %>>
+      <div>
+        <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
+        <p><%= pet.age %></p>
+        <p><%= pet.sex %></p>
+        <p><%= image_tag(image_path(pet.image_path)) %></p>
+      </div>
+    </section>
+  <% end %>
+  <br>
+  <br>
+  <%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>
+</content>

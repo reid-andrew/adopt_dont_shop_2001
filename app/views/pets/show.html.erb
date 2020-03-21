@@ -1,10 +1,16 @@
-<h1><%= @pet.name %></h1>
-<%= image_tag(image_path(@pet.image_path)) %>
-<p><%= @pet.description %></p>
-<p><%= @pet.age.to_s %></p>
-<p><%= @pet.sex %></p>
-<p><%= @pet.adoptable_status %></p>
-<br>
-<%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
-<br>
-<%= link_to "Delete Pet", "/pets/#{@pet.id}/delete" %>
+<nav>
+  <%= link_to "All Pets", "/pets" %>
+  <%= link_to "All Shelters", "/shelters" %>
+</nav>
+<content>
+  <h1><%= @pet.name %></h1>
+  <%= image_tag(image_path(@pet.image_path)) %>
+  <p><%= @pet.description %></p>
+  <p><%= @pet.age.to_s %></p>
+  <p><%= @pet.sex %></p>
+  <p><%= @pet.adoptable_status %></p>
+  <br>
+  <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
+  <br>
+  <%= link_to "Delete Pet", "/pets/#{@pet.id}/delete" %>
+</content>

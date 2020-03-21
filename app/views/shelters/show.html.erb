@@ -1,8 +1,14 @@
-<h1><%= @shelter.name %></h1>
-<p><%= @shelter.address %></p>
-<p><%= "#{@shelter.city}, #{@shelter.state}  #{@shelter.zip}" %></p>
-<br>
-<br>
-<%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
-<br>
-<%= link_to "Delete Shelter", "/shelters/#{@shelter.id}/delete" %>
+<nav>
+  <%= link_to "All Pets", "/pets" %>
+  <%= link_to "All Shelters", "/shelters" %>
+</nav>
+<content>
+  <h1><%= @shelter.name %></h1>
+  <p><%= @shelter.address %></p>
+  <p><%= "#{@shelter.city}, #{@shelter.state}  #{@shelter.zip}" %></p>
+  <br>
+  <br>
+  <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
+  <br>
+  <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}/delete" %>
+</content>

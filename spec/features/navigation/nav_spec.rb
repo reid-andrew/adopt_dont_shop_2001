@@ -15,15 +15,29 @@ RSpec.describe "PETS show page - A user", type: :feature do
                         image_path: 'hp.jpg',
                         adoptable_status: 'Adoptable',
                         description: "He's the cutest!")
-    @pet_2 = Pet.create( name: "Liza Bear",
-                        age: 16,
-                        sex: "Female",
-                        shelter_id: @shelter_1.id,
-                        image_path: 'hp2.jpg',
-                        adoptable_status: 'Pending Adoption',
-                        description: "Newfie drool!")
   end
-    it "can nav to pets index" do
+  it "can nav to pets index" do
+    visit "/pets"
+    within("nav") do
+      click_link "All Pets"
+    end
+
+    expect(page).to have_current_path("/pets")
+
+    visit "/shelters/1/pets/new"
+    within("nav") do
+      click_link "All Pets"
+    end
+
+    expect(page).to have_current_path("/pets")
+
+    visit "/pets/#{@pet_1.id}"
+    within("nav") do
+      click_link "All Pets"
+    end
+
+    expect(page).to have_current_path("/pets")
+
     visit "/pets/#{@pet_1.id}/edit"
     within("nav") do
       click_link "All Pets"
@@ -33,7 +47,35 @@ RSpec.describe "PETS show page - A user", type: :feature do
   end
 
   it "can nav to shelters index" do
-    visit "/pets/#{@pet_1.id}/edit"
+    visit "/shelters"
+    within("nav") do
+      click_link "All Shelters"
+    end
+
+    expect(page).to have_current_path("/shelters")
+
+    visit "/shelters/new"
+    within("nav") do
+      click_link "All Shelters"
+    end
+
+    expect(page).to have_current_path("/shelters")
+
+    visit "/shelters/#{@shelter_1.id}"
+    within("nav") do
+      click_link "All Shelters"
+    end
+
+    expect(page).to have_current_path("/shelters")
+
+    visit "/shelters/#{@shelter_1.id}/edit"
+    within("nav") do
+      click_link "All Shelters"
+    end
+
+    expect(page).to have_current_path("/shelters")
+
+    visit "/shelters/#{@shelter_1.id}/pets"
     within("nav") do
       click_link "All Shelters"
     end
