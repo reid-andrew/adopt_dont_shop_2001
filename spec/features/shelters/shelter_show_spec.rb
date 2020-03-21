@@ -37,7 +37,7 @@ RSpec.describe "SHELTERS show page - A user", type: :feature do
 
   it "can delete a sheleter" do
     visit "/shelters"
-    
+
     expect(page).to have_content(@shelter_1.name)
 
     visit "/shelters/#{@shelter_1.id}"
@@ -45,5 +45,12 @@ RSpec.describe "SHELTERS show page - A user", type: :feature do
 
     expect(page).to have_current_path("/shelters")
     expect(page).not_to have_content(@shelter_1.name)
+  end
+
+  it "can nav to the shelter's pets from the shelter show" do
+    visit "/shelters/#{@shelter_1.id}"
+    click_link "View Pets at #{@shelter_1.name}"
+
+    expect(page).to have_current_path("/shelters/#{@shelter_1.id}/pets")
   end
 end

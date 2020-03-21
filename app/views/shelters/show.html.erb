@@ -4,6 +4,7 @@
 </nav>
 <content>
   <h1><%= @shelter.name %></h1>
+  <%= link_to "View Pets at #{@shelter.name}", "/shelters/#{@shelter.id}/pets" %>
   <p><%= @shelter.address %></p>
   <p><%= "#{@shelter.city}, #{@shelter.state}  #{@shelter.zip}" %></p>
   <br>
