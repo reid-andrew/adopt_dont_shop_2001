@@ -73,4 +73,20 @@ RSpec.describe "SHOWPETS index page - A user", type: :feature do
 
     expect(page).to have_current_path("/shelters/#{@shelter_1.id}/pets/new")
   end
+
+  it "can click to show the pet" do
+    visit "/shelters/#{@shelter_1.id}/pets"
+    within("##{@pet_1.id}") do
+      click_link "#{@pet_1.name}"
+    end
+
+    expect(page).to have_current_path("/pets/#{@pet_1.id}")
+
+    visit "/shelters/#{@shelter_2.id}/pets"
+    within("##{@pet_3.id}") do
+      click_link "#{@pet_3.name}"
+    end
+
+    expect(page).to have_current_path("/pets/#{@pet_3.id}")
+  end
 end

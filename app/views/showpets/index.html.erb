@@ -1,10 +1,14 @@
 <h1><%= @shelter.name %></h1>
 <br>
 <% @shelter.adoptable_pets.each do |pet| %>
-  <h3><%= pet.name %></h3>
-  <p><%= pet.age %></p>
-  <p><%= pet.sex %></p>
-  <p><%= image_tag(image_path(pet.image_path)) %></p>
+  <section id = <%="#{pet.id}" %>>
+    <div>
+      <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
+      <p><%= pet.age %></p>
+      <p><%= pet.sex %></p>
+      <p><%= image_tag(image_path(pet.image_path)) %></p>
+    </div>
+  </section>
 <% end %>
 <br>
 <br>
