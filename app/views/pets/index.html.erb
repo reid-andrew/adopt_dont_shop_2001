@@ -1,14 +1,20 @@
-<h1>All Pets</h1>
-<% @pets.each do |pet| %>
-  <section id = <%="#{pet.id}" %>>
-    <div>
-      <h2><%= link_to "#{pet.name}", "pets/#{pet.id}" %></h2>
-      <p><%= pet.age.to_s %></p>
-      <p><%= pet.sex %></p>
-      <p><%= link_to "#{pet.shelter_name}", "/shelters/#{pet.shelter_id}" %></p>
-      <%= image_tag(image_path(pet.image_path)) %>
-      <%= link_to "Edit Pet", "/pets/#{pet.id}/edit" %>
-      <%= link_to "Delete Pet", "/pets/#{pet.id}/delete" %>
-    </div>
-  </section>
-<% end %>
+<nav>
+  <%= link_to "All Pets", "/pets" %>
+  <%= link_to "All Shelters", "/shelters" %>
+</nav>
+<content>
+  <h1>All Pets</h1>
+  <% @pets.each do |pet| %>
+    <section id = <%="#{pet.id}" %>>
+      <div>
+        <h2><%= link_to "#{pet.name}", "pets/#{pet.id}" %></h2>
+        <p><%= pet.age.to_s %></p>
+        <p><%= pet.sex %></p>
+        <p><%= link_to "#{pet.shelter_name}", "/shelters/#{pet.shelter_id}" %></p>
+        <%= image_tag(image_path(pet.image_path)) %>
+        <%= link_to "Edit Pet", "/pets/#{pet.id}/edit" %>
+        <%= link_to "Delete Pet", "/pets/#{pet.id}/delete" %>
+      </div>
+    </section>
+  <% end %>
+</content>
