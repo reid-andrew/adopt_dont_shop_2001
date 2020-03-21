@@ -63,14 +63,13 @@ RSpec.describe "PETS index page - A user", type: :feature do
     expect(page).to have_current_path("/pets")
     expect(page).not_to have_content(@pet_1.name)
 
+    visit "/pets"
+    within("##{@pet_2.id}") do
+      click_link "Delete Pet"
+    end
 
-    # visit "/pets"
-    # within("##{@pet_2.id}") do
-    #   click_link "Delete Pet"
-    # end
-    #
-    # expect(page).to have_current_path("/pets")
-    # expect(page).not_to have_content(@pet_2.name)
+    expect(page).to have_current_path("/pets")
+    expect(page).not_to have_content(@pet_2.name)
   end
 
   it "can click to show the shelter", type: :feature do
