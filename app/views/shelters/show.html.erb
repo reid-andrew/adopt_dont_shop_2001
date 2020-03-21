@@ -1,6 +1,12 @@
 <nav>
-  <%= link_to "All Pets", "/pets" %>
-  <%= link_to "All Shelters", "/shelters" %>
+  <ul class="nav_list">
+    <li class="nav_link">
+      <%= link_to "All Pets", "/pets" %>
+    </li>
+    <li class="nav_link"> 
+      <%= link_to "All Shelters", "/shelters" %>
+    </li>
+  </ul>
 </nav>
 <content>
   <h1><%= @shelter.name %></h1>
