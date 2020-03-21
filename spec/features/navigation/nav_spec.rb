@@ -27,7 +27,7 @@ RSpec.describe "Site navigation - A user", type: :feature do
   end
 
   it "can nav to pets index from shelter pets" do
-    visit "/shelters/1/pets/new"
+    visit "/shelters/#{@shelter_1.id}/pets/new"
     within("nav") do
       click_link "All Pets"
     end
