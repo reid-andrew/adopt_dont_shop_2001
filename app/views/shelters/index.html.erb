@@ -9,7 +9,7 @@
       <div>
         <%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %>
         <%= link_to "Edit Shelter", "/shelters/#{shelter.id}/edit" %>
-        <%= link_to "Delete Shelter", "/shelters/#{shelter.id}/delete" %>
+        <%= link_to "Delete Shelter", "/shelters/#{shelter.id}", method: :delete %>
       </div>
     </section>
   <% end %>
