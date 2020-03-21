@@ -8,7 +8,7 @@ RSpec.describe "PETS index page - A user", type: :feature do
                                 state: "CO",
                                 zip: "80220"
                               )
-    @pet_1 = Pet.create( name: "Henry",
+    @pet_1 = Pet.create( name: "Holly",
                         age: 4,
                         sex: "Male",
                         shelter_id: @shelter_1.id,
@@ -52,5 +52,24 @@ RSpec.describe "PETS index page - A user", type: :feature do
     end
 
     expect(page).to have_current_path("/pets/#{@pet_2.id}/edit")
+  end
+
+  it "can click to delete an existing pet" do
+    visit "/pets"
+    within("##{@pet_1.id}") do
+      click_link "Delete Pet"
+    end
+
+    expect(page).to have_current_path("/pets")
+    expect(page).not_to have_content(@pet_1.name)
+
+
+    visit "/pets"
+    within("##{@pet_2.id}") do
+      click_link "Delete Pet"
+    end
+
+    expect(page).to have_current_path("/pets")
+    expect(page).not_to have_content(@pet_2.name)
   end
 end

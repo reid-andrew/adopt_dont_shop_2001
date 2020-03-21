@@ -8,6 +8,7 @@
       <p><%= pet.shelter_name %></p>
       <%= image_tag(image_path(pet.image_path)) %>
       <%= link_to "Edit Pet", "/pets/#{pet.id}/edit" %>
+      <%= link_to "Delete Pet", "/pets/#{pet.id}/delete" %>
     </div>
   </section>
 
