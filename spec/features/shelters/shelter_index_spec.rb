@@ -15,6 +15,13 @@ RSpec.describe "SHELTERS index page - A user", type: :feature do
                                 state: "OH",
                                 zip: "43812"
                               )
+    @pet_1 = Pet.create( name: "Holly",
+                        age: 4,
+                        sex: "Male",
+                        shelter_id: @shelter_1.id,
+                        image: 'hp.jpg',
+                        description: 'Cute',
+                        adoptable_status: 'Adoptable')
   end
 
   it "can see the name of each shelter in the system" do
