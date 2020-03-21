@@ -65,4 +65,13 @@ RSpec.describe "SHELTERS index page - A user", type: :feature do
     expect(page).to have_current_path("/shelters")
     expect(page).not_to have_content(@shelter_2.name)
   end
+
+  it "can click to show an existing shelter", type: :feature do
+    visit "/shelters"
+    within("##{@shelter_1.id}") do
+      click_link "#{@shelter_1.name}"
+    end
+
+    expect(page).to have_current_path("/shelters/#{@shelter_1.id}")
+  end
 end
