@@ -1,8 +1,14 @@
 <h1>All Pets</h1>
 <% @pets.each do |pet| %>
-  <h2><%= pet.name %></h2>
-  <p><%= pet.age.to_s %></p>
-  <p><%= pet.sex %></p>
-  <p><%= pet.shelter_name %></p>
-  <%= image_tag(image_path(pet.image_path)) %>
+  <section id = <%="#{pet.id}" %>>
+    <div>
+      <h2><%= pet.name %></h2>
+      <p><%= pet.age.to_s %></p>
+      <p><%= pet.sex %></p>
+      <p><%= pet.shelter_name %></p>
+      <%= image_tag(image_path(pet.image_path)) %>
+      <%= link_to "Edit Pet", "/pets/#{pet.id}/edit" %>
+    </div>
+  </section>
+
 <% end %>

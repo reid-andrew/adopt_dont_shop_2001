@@ -23,6 +23,7 @@ RSpec.describe "PETS index page - A user", type: :feature do
                         description: 'Cute',
                         adoptable_status: 'Adoptable')
   end
+
   it "can see the name and info of each pet in the system" do
 
     visit "/pets"
@@ -35,5 +36,21 @@ RSpec.describe "PETS index page - A user", type: :feature do
     expect(page).to have_content(@pet_2.sex)
     expect(page).to have_css("img[src='/assets/hp-606612a36d3cc16d901e74616fbd73a568030910d171797aa44123d55a9bfa70.jpg']")
     expect(page).to have_css("img[src='/assets/hp2-d54ec5938e641f10459be7bdba8fbb7fed849ec44ba2d1ed8568773d69bd164d.jpg']")
+  end
+
+  it "can click to edit an existing pet" do
+    visit "/pets"
+    within("##{@pet_1.id}") do
+      click_link "Edit Pet"
+    end
+
+    expect(page).to have_current_path("/pets/#{@pet_1.id}/edit")
+
+    visit "/pets"
+    within("##{@pet_2.id}") do
+      click_link "Edit Pet"
+    end
+
+    expect(page).to have_current_path("/pets/#{@pet_2.id}/edit")
   end
 end
