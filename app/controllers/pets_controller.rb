@@ -4,7 +4,9 @@ class PetsController < ApplicationController
     @pets = Pet.all
   end
 
-  def new; end
+  def new
+    @shelter = Shelter.find(params[:id])
+  end
 
   def create
     pet = Pet.new({
