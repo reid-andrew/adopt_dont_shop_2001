@@ -11,6 +11,8 @@
 <content>
   <h1><%= @shelter.name %></h1>
   <br>
+  <h3><%= "#{@shelter.adoptable_pets.count} #{@shelter.adoptable_pets.count == 1 ? "pet":"pets"} available!" %>
+  <br>
   <% @shelter.adoptable_pets.each do |pet| %>
     <section id = <%="#{pet.id}" %>>
       <div>

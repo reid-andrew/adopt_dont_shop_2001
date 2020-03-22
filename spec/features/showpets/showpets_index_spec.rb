@@ -89,4 +89,14 @@ RSpec.describe "SHOWPETS index page - A user", type: :feature do
 
     expect(page).to have_current_path("/pets/#{@pet_3.id}")
   end
+
+  it "can see the number of available pets" do
+    visit "/shelters/#{@shelter_1.id}/pets"
+
+    expect(page).to have_content("2 pets available")
+
+    visit "/shelters/#{@shelter_2.id}/pets"
+
+    expect(page).to have_content("1 pet available")
+  end
 end
