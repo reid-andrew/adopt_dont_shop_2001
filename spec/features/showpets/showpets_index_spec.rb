@@ -56,14 +56,16 @@ RSpec.describe "SHOWPETS index page - A user", type: :feature do
 
     expect(page).to have_content(@pet_1.name)
     expect(page).to have_content(@pet_2.name)
+    expect(page).to have_content(@pet_4.name)
     expect(page).to have_content(@pet_1.age)
     expect(page).to have_content(@pet_2.age)
+    expect(page).to have_content(@pet_4.age)
     expect(page).to have_content(@pet_1.sex)
     expect(page).to have_content(@pet_2.sex)
+    expect(page).to have_content(@pet_4.sex)
     expect(page).to have_css("img[src='/assets/hp-606612a36d3cc16d901e74616fbd73a568030910d171797aa44123d55a9bfa70.jpg']")
     expect(page).to have_css("img[src='/assets/hp2-d54ec5938e641f10459be7bdba8fbb7fed849ec44ba2d1ed8568773d69bd164d.jpg']")
     expect(page).to_not have_content(@pet_3.name)
-    expect(page).to_not have_content(@pet_4.name)
     expect(page).to_not have_content(@pet_5.name)
   end
 
@@ -88,5 +90,15 @@ RSpec.describe "SHOWPETS index page - A user", type: :feature do
     end
 
     expect(page).to have_current_path("/pets/#{@pet_3.id}")
+  end
+
+  it "can see the number of available pets" do
+    visit "/shelters/#{@shelter_1.id}/pets"
+
+    expect(page).to have_content("2 pets available")
+
+    visit "/shelters/#{@shelter_2.id}/pets"
+
+    expect(page).to have_content("1 pet available")
   end
 end

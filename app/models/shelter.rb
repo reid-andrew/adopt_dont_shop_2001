@@ -5,4 +5,8 @@ class Shelter < ApplicationRecord
   def adoptable_pets
     pets.select { |pet| pet.adoptable_status == "Adoptable"}
   end
+
+  def pending_pets
+    pets.select { |pet| pet.adoptable_status == "Pending Adoption"}
+  end
 end
